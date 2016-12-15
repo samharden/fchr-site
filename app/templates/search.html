@@ -1,0 +1,39 @@
+<!-- extend from base layout -->
+
+<!DOCTYPE html>
+
+
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<html lang="en">
+<head>
+
+  <p class="hidden-print">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+
+
+</head>
+
+    <center>
+
+    <h1>Search Opinions:</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+      <p><h4>
+          {{form.searchall(size=50)}}
+      </h4></p>
+
+          <p><input type="submit" value="Search"></p>
+    </form>
+</center>
+
+<hr>
+
+
+{% endblock %}

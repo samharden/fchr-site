@@ -1,0 +1,65 @@
+<!-- extend from base layout -->
+
+<!DOCTYPE html>
+
+
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<html lang="en">
+<head>
+
+  <p class="hidden-print">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+</head>
+<body>
+<center>
+<p><h3>Florida Commission on Human Relations</h3></p>
+<p><h4>Technical Assistance Questionnaire for Public Accommodation Complaints</h4></p>
+</center>
+<hr>
+<p><b>1. Personal Information:</b></p>
+<p><b>Name:</b> {{complaintant_firstname}} {{complaintant_mi}} {{complaintant_lastname}} </p>
+<p><b>Address:</b> {{complaintant_streetaddress}} {{complaintant_city}}, {{complaintant_state}}  {{complaintant_zip}}</p>
+<p><b>Phone:</b> {{complaintant_phone}}</p>
+<p><b>Email address:</b> {{complaintant_email}}</p>
+<p><b>Date of birth:</b> {{complaintant_dob}}</p>
+<p><b>Sex:</b> {{complaintant_sex}}</p>
+<br>
+
+<p><b>2. Please provide the name of a person we can contact if we are unable to reach you:</b></p>
+<p><b>Name: </b> {{otherperson_firstname}} {{otherperson_mi}} {{otherperson_lastname}}</p>
+<p><b>Relationship:  </b> {{otherperson_rel}}</p>
+<p><b>Address: </b> {{otherperson_streetaddress}} {{otherperson_city}}, {{otherperson_state}} {{otherperson_zip}}</p>
+<p><b>Phone: </b> {{otherperson_phone}}</p>
+<br>
+
+<p><b>3.	I believe that I was discriminated against by the following organization(s): </b></p>
+<p><b>Organization Name: </b></p>
+<p><b>Address: </b></p>
+<p><b>Phone: </b></p>
+<p><b>Type of Business: </b></p>
+<p><b>Owner Name: </b>  <b>Phone: </b></p>
+<br>
+
+<p><b>4.	Organization representative contact information (if known): </b></p>
+<p><b>Representative Name: </b></p>
+<p><b>Address: </b></p>
+<p><b>Phone: </b></p>
+<p><b>Email: </b></p>
+
+<p><b>5.	What is the reason or basis for your claim of public accomodations discrimination? </b></p>
+<p><b>Race? </b> {{reason_race}}<b> Your race: {{reason_race_choose}} </b></p>
+
+
+<p>Other: {{reason_other}}</p>
+<br>
+
+<hr>
+
+
+{% endblock %}

@@ -1,0 +1,373 @@
+/**
+ */
+/**
+ * Table of Contents:
+ *
+ * 1.0 - Normalize
+ * 2.0 - Font Awesome
+ * 3.0 - Grid system
+ * 4.0 - Animation
+ * 5.0 - General HTML elements and classes
+ * 6.0 - Header
+ * 7.0 - Topbar
+ * 8.0 - Menu
+ * 9.0 - Entry
+ * 10.0 - Comments
+ * 11.0 - Pagination
+ * 12.0 - Social Buttons
+ * 13.0 - Sidebar
+ * 14.0 - Footer
+ * 15.0 - Grid layout
+ * 16.0 - Classic layout
+ * 17.0 - Portfolio
+ * 18.0 - Testimonial
+ * 19.0 - Responsive
+ * 20.0 - Front page
+ * -----------------------------------------------------------------------------
+ */
+/**
+ * 1.0 - Normalize
+ *
+ * normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css
+ *
+ * -----------------------------------------------------------------------------
+ */
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+* General HTML elements and classes
+ *
+  * -----------------------------------------------------------------------------
+ */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  color: #666;
+  font: 300 20px/1.6 Lato, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: #fff;
+
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 1.333em 0 .5em;
+  color: #444;
+}
+h1 {
+  font-size: 2.369em;
+  letter-spacing: -0.04em;
+}
+h2 {
+  font-size: 1.777em;
+  letter-spacing: -0.04em;
+}
+h3 {
+  font-size: 1.333em;
+}
+h4 {
+  font-size: 1em;
+}
+h5 {
+  font-size: .75em;
+}
+h6 {
+  font-size: .563em;
+  text-transform: uppercase;
+}
+p {
+  margin: 1em 1em;
+}
+form {
+  font-size: 1em;
+}
+
+.selectfield {
+  font-size: 1em;
+}
+
+.inputfield {
+
+  color: #666;
+  background: #f0f0f0;
+  border-left: 3px solid  #a9a9a9;
+
+  margin-left: 1em;
+}
+.form {
+    width: 95%;
+}
+blockquote {
+  padding: 1em 1.5em;
+  line-height: 150%;
+  color: #666;
+  background: #f0f0f0;
+  border-left: 8px solid #13c0a2;
+  margin: 1em 0;
+}
+blockquote p:last-child {
+  margin: 0;
+}
+blockquote cite {
+  display: block;
+  margin-top: .5em;
+  font-size: .7em;
+}
+blockquote cite:before {
+  content: '\2014';
+  margin-right: .5em;
+}
+a {
+  color: #13c0a2;
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+button,
+input,
+textarea {
+  padding: .7em 1.2em;
+  font-size: .85em;
+  border: 0;
+  background: #f2f2f2;
+  border-radius: 3px;
+  transition: all .3s;
+}
+button:active,
+input:active,
+textarea:active,
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 0;
+}
+textarea {
+  width: 75%;
+}
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  display: inline-block;
+  background: #1B7EC3;
+  border-color: #13c0a2;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover {
+  background: #109d85;
+}
+button:active,
+input[type="submit"]:active,
+input[type="reset"]:active,
+input[type="button"]:active {
+  top: 1px;
+  position: relative;
+}
+code,
+kbd,
+samp {
+  font-size: .85em;
+  color: #c01331;
+}
+pre {
+  line-height: 1.4;
+  padding: .7em 1.2em;
+  background: #333;
+  font-size: .75em;
+  color: #eee;
+}
+pre code {
+  color: #eee;
+}
+
+table {
+color: #333;
+width: 65%;
+margin: 1em 0;
+border-collapse:
+collapse; border-spacing: 0;
+overflow:auto;
+}
+
+td, th {
+border: 1px solid; /* No more visible border */
+height: 30px;
+transition: all 0.3s; /* Simple transition for hover effect */
+
+}
+
+th {
+background: #DFDFDF; /* Darken header a bit */
+font-weight: bold;
+text-align: center;
+}
+
+td {
+background: #FAFAFA;
+text-align: center;
+}
+
+/* Cells in even rows (2,4,6...) are one color */
+tr:nth-child(even) td { background: #F1F1F1; }
+
+/* Cells in odd rows (1,3,5...) are another (excludes header cells) */
+tr:nth-child(odd) td { background: #FEFEFE; }
+
+tr td:hover { background: #666; color: #FFF; } /* Hover cell effect! */}
+
+tr {
+  border-bottom: 1px solid #ddd;
+}
+tr:nth-child(even) {
+  background: #f3f3f3;
+}
+th,
+td {
+  padding: .5em;
+  line-height: 1.4;
+}
+caption {
+  color: #444;
+  text-align: center;
+  padding: 2%;
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul ul,
+ul ol,
+ol ul,
+ol ol {
+  margin-bottom: 0;
+}
+li {
+  line-height: 1.9;
+}
+strong,
+b {
+  font-weight: 400;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.clearfix:after {
+  clear: both;
+}
+.button,
+.button-minimal,
+.entry-content .more-link {
+  padding: 1.2em 1.4em;
+  margin: 0;
+  border: 1px solid #13c0a2;
+  background: #13c0a2;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: .8rem;
+  line-height: 1;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  transition: background .2s;
+  display: inline-block;
+}
+.button:hover,
+.button-minimal:hover,
+.entry-content .more-link:hover {
+  background: #109d85;
+  border-color: #109d85;
+  color: #fff;
+  text-decoration: none;
+}
+.button:focus,
+.button-minimal:focus,
+.button:active,
+.button-minimal:active {
+  outline: none;
+}
+.button-minimal {
+  background: transparent;
+  border-color: rgba(0, 0, 0, 0.3);
+  color: #666;
+}
+.button-minimal:hover {
+  background: #13c0a2;
+  color: #fff;
+  border-color: #13c0a2;
+}
+.header .button-minimal {
+  border-color: rgba(255, 255, 255, 0.3);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+}
+.header .button-minimal:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+u,
+.underline {
+  border-bottom: 1px solid #ddd;
+  text-decoration: none;
+}
+big,
+.highlight {
+  font-size: 1.2em;
+  color: #7e7e7e;
+}
+.hidden {
+  display: none;
+}
+.clear {
+  clear: both;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+::-moz-selection {
+  background: #13c0a2;
+  color: #fff;
+}
+::selection {
+  background: #13c0a2;
+  color: #fff;
+}
+::-webkit-input-placeholder {
+  color: #a9a9a9;
+}
+:-ms-input-placeholder {
+  color: #a9a9a9;
+}
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}

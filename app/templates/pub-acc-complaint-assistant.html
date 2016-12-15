@@ -1,0 +1,125 @@
+<!-- extend from base layout -->
+
+<!DOCTYPE html>
+
+
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<html lang="en">
+<head>
+
+  <p class="hidden-print">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+</head>
+
+    <center>
+
+    <h4>Please Complete the Following Information:</h4>
+
+  </center>
+
+    <form action="" method="post" class="form">
+        {{ form.hidden_tag() }}
+      <p><b>Complete the Following Information About Yourself:</b></p>
+      <p>Your Last Name: {{form.complaintant_lastname(class="inputfield")}}</p>
+      <p>Your First Name: {{form.complaintant_firstname(class="inputfield")}}</p>
+      <p>Your Middle Inidial: {{form.complaintant_mi(size=2, class="inputfield")}}</p>
+      <p>Your Street Address: {{form.complaintant_streetaddress(class="inputfield")}}</p>
+      <p>Your Apartment Number (if applicable): {{form.complaintant_aptnum(size=5, class="inputfield")}}</p>
+      <p>Your City: {{form.complaintant_city(class="inputfield")}}</p>
+      <p>Your County: {{form.complaintant_county(class="inputfield")}}</p>
+      <p>Your State: {{form.complaintant_state(class="selectfield")}}</p>
+      <p>Your Zip Code: {{form.complaintant_zip(size=6, class="inputfield")}}</p>
+      <p>Your Phone: {{form.complaintant_phone(size=12, class="inputfield")}}</p>
+      <p>Your Email: {{form.complaintant_email(class="inputfield")}}</p>
+      <p>Your Date of Birth: {{form.complaintant_dob(class="inputfield")}}</p>
+      <p>Your Sex: {{form.complaintant_sex(class="selectfield")}}</p>
+
+      <br>
+
+      <p><b>Please provide the name of a person we can contact if we are unable to reach you:</b></p>
+      <p>Their Relationship to You: {{form.otherperson_rel(class="inputfield")}}</p>
+      <p>Contact's Last Name: {{form.otherperson_lastname(class="inputfield")}}</p>
+      <p>Contact's First Name: {{form.otherperson_firstname(class="inputfield")}}</p>
+      <p>Contact's Middle Inidial: {{form.otherperson_mi(size=2, class="inputfield")}}</p>
+      <p>Contact's Street Address: {{form.otherperson_streetaddress(class="inputfield")}}</p>
+      <p>Contact's Apartment Number (if applicable): {{form.otherperson_aptnum(size=5, class="inputfield")}}</p>
+      <p>Contact's City: {{form.otherperson_city(class="inputfield")}}</p>
+      <p>Contact's County: {{form.otherperson_county(class="inputfield")}}</p>
+      <p>Contact's State: {{form.otherperson_state(class="selectfield")}}</p>
+      <p>Contact's Zip Code: {{form.otherperson_zip(size=6, class="inputfield")}}</p>
+      <p>Contact's Phone: {{form.otherperson_phone(size=12, class="inputfield")}}</p>
+
+      <br>
+
+      <p><b>Please provide the following information about the organization or business
+      that discriminated against you:</b></p>
+      <p>The Organization's Name: {{form.organization_name(class="inputfield")}}</p>
+      <p>The Organization's Street Address: {{form.organization_streetaddress(class="inputfield")}}</p>
+      <p>The Organization's City: {{form.organization_city(class="inputfield")}}</p>
+      <p>The Organization's County: {{form.organization_county(class="inputfield")}}</p>
+      <p>The Organization's State: {{form.organization_state(class="selectfield")}}</p>
+      <p>The Organization's Zip Code: {{form.organization_zip(size=6, class="inputfield")}}</p>
+      <p>The Organization's Phone: {{form.organization_phone(size=12, class="inputfield")}}</p>
+      <p>The Type of Organization: {{form.organization_type(class="inputfield")}}</p>
+      <p><i>Examples: Private Club, Restaurant, Hotel, Store</i></p>
+      <p>The Organization's Owner, if you know: {{form.organization_owner(class="inputfield")}}</p>
+      <p>The Owner's Telephone Number, if you know: {{form.organization_ownerphone(class="inputfield")}}</p>
+
+      <br>
+      <p><b>If you know the name and contact information for a representative for
+        the organization, please provide it here:</b></p>
+        <p>The Representative's Name: {{form.org_pr_name(class="inputfield")}}</p>
+        <p>The Representative's Street Address: {{form.org_pr_streetaddress(class="inputfield")}}</p>
+        <p>The Representative's City: {{form.org_pr_city(class="inputfield")}}</p>
+        <p>The Representative's County: {{form.org_pr_county(class="inputfield")}}</p>
+        <p>The Representative's State: {{form.org_pr_state(class="selectfield")}}</p>
+        <p>The Representative's Zip Code: {{form.org_pr_zip(size=6, class="inputfield")}}</p>
+        <p>The Representative's Phone: {{form.org_pr_phone(size=12, class="inputfield")}}</p>
+
+        <br>
+        <p><b>What are the reasons for your discrimination claim?</b></p>
+        <p> {{form.reason_race}} Race</p>
+        <p>If you marked yes, what is your race? {{form.reason_race_choose(class="selectfield")}}</p>
+
+        <p> {{form.reason_color}} Color</p>
+        <p>If you marked yes, what is your race? {{form.reason_color_choose(class="selectfield")}}</p>
+
+        <p> {{form.reason_natorigin}} National Origin</p>
+        <p>If you marked yes, what is your national origin? {{form.reason_natorigin_choose(class="selectfield")}}</p>
+
+        <p> {{form.reason_sex}} Sex</p>
+        <p>If you marked yes, what is your race? {{form.reason_sex_choose(class="selectfield")}}</p>
+
+        <p> {{form.reason_preg}} Pregnancy or a Pregnancy-Related Condition</p>
+
+        <p> {{form.reason_religion}} Religion</p>
+
+        <p> {{form.reason_disability}} Mental or Physical Disability or Disability-Related Condition</p>
+
+        <p> {{form.reason_familial_status}} Familial Status</p>
+
+        <p> {{form.reason_other}} Other</p>
+
+        <p><b>What happened to you that you believe was discriminatory?
+    Include the date(s) of harm, the action(s), and the name(s) and title(s)
+    of the person(s) who you believe discriminated against you.</b></p>
+
+          <p>{{form.harm_description(class="inputfield")}}</p>
+
+
+          
+
+          <p><center><input type="submit" value="Create Form"></center></p>
+    </form>
+</center>
+
+<hr>
+
+
+{% endblock %}
