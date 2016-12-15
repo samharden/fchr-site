@@ -6,11 +6,11 @@ from flask.ext.login import login_user, logout_user, current_user, login_require
 
 
 
-print "Top of Views"
+print("Top of Views")
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def index():
-    print "Top of index"
+    print("Top of index")
     form = frontpage()
     session['complaint_or_search'] = form.complaint_or_search.data
 
