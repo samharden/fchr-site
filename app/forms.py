@@ -9,20 +9,21 @@ class frontpage(Form):
                                             default="", validators=[DataRequired()])
 
 class searchform(Form):
-    searchall = TextAreaField('searchall')
+    searchall = TextAreaField('searchall', validators=[DataRequired()])
 
     def validate(self):
         if not Form.validate(self):
             #print "not form validate"
-            if "<" in self.searchall.data:
+            if "+" in self.searchall.data:
                 #info = Markup("<h2 style='color:red'> Really? Try Harder. </h2>")
                 #<img src="/static/500_error.jpg">
-                info = Markup("<img src='/static/hackers.jpg'>")
+                info = Markup("<p style='color:red'> Yeah ... this doesn't work yet. :( </p>")
                 flash(info)
                 return False
             elif self.searchall.data:
-                #print "Should return True"
-                return True
+                info = Markup("<p style='color:red'> Yeah ... this doesn't work yet. :( </p>")
+                flash(info)
+                return False
             #print "Should return False"
             info = Markup('<h2 style="color:red"> Must enter at least one search term. </h2>')
             flash(info)
@@ -85,7 +86,7 @@ class pub_acc(Form):
     organization_city = TextField('organization_city')
     organization_county = TextField('organization_county')
     organization_state = SelectField('organization_state', choices=[
-                                    ('fl','FL')
+                                    ('FL','FL')
                                     ])
     organization_zip = TextField('organization_zip')
     organization_phone = TextField('organization_phone')
@@ -99,7 +100,7 @@ class pub_acc(Form):
     org_pr_city = TextField('org_pr_city')
     org_pr_county = TextField('org_pr_county')
     org_pr_state = SelectField('org_pr_state', choices=[
-                                    ('fl','FL')
+                                    ('FL','FL')
                                     ])
     org_pr_zip = TextField('org_pr_zip')
     org_pr_phone = TextField('org_pr_phone')
@@ -108,43 +109,43 @@ class pub_acc(Form):
 
     reason_race = BooleanField('reason_race')
     reason_race_choose = SelectField('reason_race_choose', choices=[
-                                    ('black','Black'),
-                                    ('white','White'),
-                                    ('asian','Asian'),
-                                    ('nhpi','Nat. Hawaiian / Pac. Islander'),
-                                    ('amerindian','American Indian')
+                                    ('Black','Black'),
+                                    ('White','White'),
+                                    ('Asian','Asian'),
+                                    ('Nat. Hawaiian / Pac. Islander','Nat. Hawaiian / Pac. Islander'),
+                                    ('American Indian / First Peoples','American Indian / First Peoples')
                                     ])
     reason_color = BooleanField('reason_color')
     reason_color_choose = SelectField('reason_color_choose', choices=[
-                                    ('lightskinned','Light Skinned'),
-                                    ('darkskinned','Dark Skinned'),
-                                    ('other','Other')
+                                    ('Light Skinned','Light Skinned'),
+                                    ('Dark Skinned','Dark Skinned'),
+                                    ('Other','Other')
                                     ])
     reason_natorigin = BooleanField('reason_natorigin')
     reason_natorigin_choose = SelectField('reason_natorigin_choose', choices=[
-                                    ('hisp','Hispanic'),
-                                    ('mex','Mexican'),
-                                    ('mideast','Middle Eastern'),
-                                    ('eastindian','East Indian'),
-                                    ('asian','Asian'),
-                                    ('northafrican','Northern African'),
-                                    ('southafrican','Southern African')
+                                    ('Hispanic','Hispanic'),
+                                    ('Mexican','Mexican'),
+                                    ('Middle Eastern','Middle Eastern'),
+                                    ('East Indian','East Indian'),
+                                    ('Asian','Asian'),
+                                    ('African','African'),
+                                    ('Native American / First Peoples', 'Native American / First Peoples'),
                                     ])
     reason_sex = BooleanField('reason_sex')
     reason_sex_choose = SelectField('reason_sex_choose', choices=[
-                                    ('female','Female'),
-                                    ('male','Male'),
-                                    ('other','Other'),
-                                    ('trans','Trans')
+                                    ('Female','Female'),
+                                    ('Male','Male'),
                                     ])
     reason_preg = BooleanField('reason_preg')
     reason_religion = BooleanField('reason_religion')
+    reason_religion_disc = TextField('reason_religion_disc')
     reason_disability = BooleanField('reason_disability')
     reason_disability_choose = SelectField('reason_disability_choose', choices=[
                                     ('phys','Physical'),
                                     ('ment','Mental')
                                     ])
     reason_familial_status = BooleanField('reason_familial_status')
+    reason_familial_status_disc = TextField('reason_familial_status_disc')
     reason_other = BooleanField('reason_other')
 
     #6.	What happened to you that you believe was discriminatory?
@@ -152,6 +153,26 @@ class pub_acc(Form):
     #of the person(s) who you believe discriminated against you. Please attach
     #additional pages if needed.
     harm_description = TextAreaField('harm_description')
+
+    disability_yes = BooleanField('disability_yes')
+    disability_past = BooleanField('disability_past')
+    disability_treat_asif = BooleanField('disability_treat_asif')
+
+    previous_charge = SelectField('previous_charge', choices=[
+                                    ('Yes','Yes'),
+                                    ('No','No')
+                                    ])
+    previous_charge_agency = TextField('previous_charge_agency')
+    previous_charge_date = TextField('previous_charge_date')
+
+    sought_help = SelectField('sought_help', choices=[
+                                ('Yes','Yes'),
+                                ('No','No')
+                                ])
+    sought_help_disc = TextField('sought_help_disc')
+
+    box_1 = BooleanField('box_1')
+    box_2 = BooleanField('box_2')
 
     def validate(self):
         if not Form.validate(self):

@@ -104,6 +104,15 @@ form {
 
   margin-left: 1em;
 }
+
+.inputfieldtall {
+
+  color: #666;
+  background: #f0f0f0;
+  border-left: 3px solid  #a9a9a9;
+  height: auto;
+  margin-left: 1em;
+}
 .form {
     width: 95%;
 }
@@ -111,7 +120,8 @@ blockquote {
   padding: 1em 1.5em;
   line-height: 150%;
   color: #666;
-  background: #f0f0f0;
+  background: #d4f7f9;
+  border-right: 8px solid #13c0a2;
   border-left: 8px solid #13c0a2;
   margin: 1em 0;
 }
@@ -126,6 +136,16 @@ blockquote cite {
 blockquote cite:before {
   content: '\2014';
   margin-right: .5em;
+}
+
+questionblock {
+  padding: 1em 1.5em;
+  line-height: 150%;
+  color: #666;
+  background: #aef2ee;
+  border-right: 8px solid #13c0a2;
+  border-left: 8px solid #13c0a2;
+  margin: 1em 0;
 }
 a {
   color: #13c0a2;
@@ -370,4 +390,11 @@ big,
   height: 1px;
   width: 1px;
   overflow: hidden;
+}
+@media print{
+.no-print
+{
+    display: none !important;
+    height: 0;
+}
 }

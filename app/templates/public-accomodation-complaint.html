@@ -39,27 +39,66 @@
 <br>
 
 <p><b>3.	I believe that I was discriminated against by the following organization(s): </b></p>
-<p><b>Organization Name: </b></p>
-<p><b>Address: </b></p>
-<p><b>Phone: </b></p>
-<p><b>Type of Business: </b></p>
-<p><b>Owner Name: </b>  <b>Phone: </b></p>
+<p><b>Organization Name:</b> {{organization_name}} </p>
+<p><b>Address: </b>{{organization_streetaddress}} {{organization_city}}, {{organization_state}} {{organization_zip}}</b></p>
+<p><b>Phone: </b>{{organization_phone}} </b></p>
+<p><b>Type of Business:</b> {{organization_type}}</p>
+<p><b>Owner Name: </b>{{organization_owner}}  <b>Phone: </b>{{organization_ownerphone}}</p>
 <br>
 
 <p><b>4.	Organization representative contact information (if known): </b></p>
-<p><b>Representative Name: </b></p>
-<p><b>Address: </b></p>
-<p><b>Phone: </b></p>
-<p><b>Email: </b></p>
+<p><b>Representative Name: </b>{{org_pr_name}}</p>
+<p><b>Address: </b>{{org_pr_streetaddress}} {{org_pr_city}},{{org_pr_state}} {{org_pr_zip}} </p>
+<p><b>Phone: </b>{{org_pr_phone}}</p>
 
 <p><b>5.	What is the reason or basis for your claim of public accomodations discrimination? </b></p>
-<p><b>Race? </b> {{reason_race}}<b> Your race: {{reason_race_choose}} </b></p>
-
-
-<p>Other: {{reason_other}}</p>
+<p><b>Race? </b> {{reason_race}}<b> Your race: </b>{{reason_race_choose}} </p>
+<p><b>Color? </b> {{reason_color}}<b> Your color: </b>{{reason_color_choose}} </p>
+<p><b>National Origin? </b> {{reason_natorigin}}<b> Your national origin:</b> {{reason_natorigin_choose}}</p>
+<p><b>Sex? </b> {{reason_sex}}<b> Your sex:</b> {{reason_sex_choose}} </p>
+<p><b>Pregnancy or Pregancy Related Condition? </b> {{reason_preg}}</p>
+<p><b>Religion? </b> {{reason_religion}} If so, please identify your religion: {{reason_religion_disc}}</p>
+<p><b>Disability or Hanidcap? </b> {{reason_disability}}</p>
+<p><b>Familial Status?</b> {{reason_familial_status}} <b>If so, please describe:</b> {{reason_familial_status_disc}}</p>
+<p><b>Other:</b> {{reason_other}}</p>
 <br>
+<p><b>6.	What happened to you that you believe was discriminatory? Include
+  the date(s) of harm, the action(s), and the name(s) and title(s) of the
+  person(s) who you believe discriminated against you. Please attach additional
+  pages if needed.  (Example: 08/08/2011 – Refused service by Mr. John Smith, waiter)</b></p>
 
+<p>{{harm_description}}</p>
+
+<p><b>7. Do you have a disability, which is a physical or mental impairment that
+  substantially limits a major life activity, such as caring for yourself,
+  performing manual tasks, walking, seeing, hearing, speaking, breathing,
+  learning, or working?</b></p>
+  <p>{{disability_yes}}{{disability_past}}{{disability_treat_asif}}</p>
+
+  <p><b>8. Have you filed this charge previously with another agency?</b> {{previous_charge}}</p>
+
+  <p><b>If so, please provide the name of the agency and the date of the filing:</b></p>
+  <p><b>Agency:</b> {{previous_charge_agency}}</p>
+  <p> <b>Date: </b>{{previous_charge_date}}</p>
+  <p><b>Have you sought help about this situation from a union, an attorney, or any other source?</b> {{sought_help}}</p>
+  <p><b>If so, provide the name of organization, name of person you spoke
+    with, date of contact and the results or outcome, if any.</b></p>
+  <p>{{sought_help_disc}}</p>
+
+    <p><b>What I want the FCHR to do with this information:</b><p>
+
+        <p><b>{{box_1}}{{box_2}}</b></p>
+
+        <p><i>NOTE: If you have checked Box 2 above, and your case is already
+          350 days or more from the alleged discrimination, the FCHR will
+          accept this form as a charge if it meets the elements of a charge.</i></p>
+
+<br><br>
+<p>Signature: _____________________________       Date: _________________________</p>
+<center><input type="button" class = "no-print" style="" align="center"
+  onClick="window.print()"
+  value="Print This Page"/>   </a>
+<br><br>
 <hr>
-
 
 {% endblock %}

@@ -29,7 +29,7 @@ def index():
 @app.route('/search', methods=['GET', 'POST'])
 def search():
     form = searchform()
-    session['searchall'] = form.searchall.data
+    session['searchall'] = form.searchall._value()
 
     searchall = session['searchall']
 
@@ -93,7 +93,7 @@ def pub_acc_complaint_assistant():
         session['organization_city'] = form.organization_city._value()
         session['organization_county'] = form.organization_county._value()
         session['organization_state'] = form.organization_state.data
-        session['organization_zip'] = form.organization_zip._value
+        session['organization_zip'] = form.organization_zip._value()
         session['organization_phone'] = form.organization_phone._value()
         session['organization_type'] = form.organization_type._value()
         session['organization_owner'] = form.organization_owner._value()
@@ -115,15 +115,33 @@ def pub_acc_complaint_assistant():
         session['reason_sex_choose'] = form.reason_sex_choose.data
         session['reason_preg'] = form.reason_preg.data
         session['reason_religion'] = form.reason_religion.data
+        session['reason_religion_disc'] = form.reason_religion_disc._value()
         session['reason_disability'] = form.reason_disability.data
         session['reason_disability_choose'] = form.reason_disability_choose.data
         session['reason_familial_status'] = form.reason_familial_status.data
+        session['reason_familial_status_disc'] = form.reason_familial_status_disc._value()
         session['reason_race'] = form.reason_race.data
         session['reason_race_choose'] = form.reason_race_choose.data
 
         session['harm_description'] = form.harm_description._value()
 
         session['reason_other'] = form.reason_other.data
+
+        session['disability_yes'] = form.disability_yes.data
+        session['disability_past'] = form.disability_past.data
+        session['disability_treat_asif'] = form.disability_treat_asif.data
+
+        session['previous_charge'] = form.previous_charge.data
+
+        session['previous_charge_agency'] = form.previous_charge_agency._value()
+        session['previous_charge_date'] = form.previous_charge_date._value()
+
+        session['sought_help'] = form.sought_help.data
+        session['sought_help_disc'] = form.sought_help_disc._value()
+
+        session['box_1'] = form.box_1.data
+        session['box_2'] = form.box_2.data
+
         return redirect(url_for('publicaccomodationcomplaint'))
     else:
         pass
@@ -190,12 +208,65 @@ def publicaccomodationcomplaint():
     reason_sex_choose = session['reason_sex_choose']
     reason_preg = session['reason_preg']
     reason_religion = session['reason_religion']
+    reason_religion_disc = session['reason_religion_disc']
     reason_disability = session['reason_disability']
     reason_disability_choose = session['reason_disability_choose']
     reason_familial_status = session['reason_familial_status']
+    reason_familial_status_disc = session['reason_familial_status_disc']
     reason_other = session['reason_other']
 
     harm_description = session['harm_description']
+
+    disability_yes = session['disability_yes']
+    disability_past = session['disability_past']
+    disability_treat_asif = session['disability_treat_asif']
+
+    previous_charge = session['previous_charge']
+    previous_charge_agency = session['previous_charge_agency']
+    previous_charge_date = session['previous_charge_date']
+
+    sought_help = session['sought_help']
+    sought_help_disc = session['sought_help_disc']
+
+    box_1 = session['box_1']
+    box_2 = session['box_2']
+
+    if disability_yes == True:
+        disability_yes = "Yes, I have a disability."
+        disability_past = ""
+        disability_treat_asif = ""
+    elif disability_past == True:
+        disability_yes = ""
+        disability_past = "I do not have a disability now, but I did have one."
+        disability_treat_asif = ""
+    elif disability_treat_asif == True:
+        disability_yes = ""
+        disability_past = ""
+        disability_treat_asif = "No disability, but the organization treats me as if I am disabled."
+    else:
+        disability_yes = ""
+        disability_past = ""
+        disability_treat_asif = ""
+
+    if box_1 == True:
+        box_1 = 'I want to talk to an FCHR employee before deciding whether to \
+        file a charge. I understand that I have not filed \
+        a charge with the FCHR. I also understand that I could lose my ability \
+        to file a charge if I do not file in time.'
+        box_2 = ' '
+    elif box_2 == True:
+        box_1 = ' '
+        box_2 = 'I want to file a charge of discrimination, and I authorize the \
+        FCHR to look into the discrimination I described above. I understand \
+        that the FCHR must give the organization that I accuse of discrimination \
+        information about the charge, including my name. I also understand that \
+        the FCHR can only accept charges of discrimination based on race, \
+        religion, sex, pregnancy, national origin, disability, age, genetic \
+        information, or retaliation for opposing discrimination. By signing \
+        below, I verify that I have read the above information and that the \
+        facts stated are true.'
+    else:
+        pass
 
     if reason_race == True:
         reason_race = "Yes"
@@ -203,13 +274,47 @@ def publicaccomodationcomplaint():
         reason_race = "No"
         reason_race_choose = "N/A"
 
+    if reason_color == True:
+        reason_color = "Yes"
+    else:
+        reason_color = "No"
+        reason_color_choose = "N/A"
 
+    if reason_natorigin == True:
+        reason_natorigin = "Yes"
+    else:
+        reason_natorigin = "No"
+        reason_natorigin_choose = "N/A"
 
+    if reason_sex == True:
+        reason_sex = "Yes"
+    else:
+        reason_sex = "No"
+        reason_sex_choose = "N/A"
+
+    if reason_religion == True:
+        reason_religion = "Yes"
+    else:
+        reason_religion = "No"
+        reason_sex_religion = "N/A"
+
+    if reason_preg == True:
+        reason_preg = "Yes"
+    else:
+        reason_preg = "No"
+
+    if reason_disability == True:
+        reason_disability = "Yes"
+    else:
+        reason_disability= "No"
 
     if reason_other == True:
         reason_other = "Yes"
     else:
         reason_other = "No"
+
+    if sought_help == "No":
+        sought_help_disc = "N/A"
 
     return render_template('public-accomodation-complaint.html',
                            title='Public Accomodation Complaint',
@@ -261,16 +366,35 @@ def publicaccomodationcomplaint():
                            reason_color=reason_color,
                            reason_color_choose=reason_color_choose,
                            reason_natorigin=reason_natorigin,
+                           reason_natorigin_choose=reason_natorigin_choose,
                            reason_sex=reason_sex,
                            reason_sex_choose=reason_sex_choose,
                            reason_preg=reason_preg,
                            reason_religion=reason_religion,
+
+                           reason_religion_disc=reason_religion_disc,
                            reason_disability=reason_disability,
                            reason_disability_choose=reason_disability_choose,
                            reason_familial_status=reason_familial_status,
+                           reason_familial_status_disc=reason_familial_status_disc,
                            reason_other=reason_other,
 
                            harm_description=harm_description,
+
+                           disability_yes=disability_yes,
+                           disability_past=disability_past,
+                           disability_treat_asif=disability_treat_asif,
+
+                           previous_charge=previous_charge,
+                           previous_charge_date=previous_charge_date,
+                           previous_charge_agency=previous_charge_agency,
+
+                           sought_help=sought_help,
+                           sought_help_disc=sought_help_disc,
+
+                           box_1=box_1,
+                           box_2=box_2,
+
                            )
 
 

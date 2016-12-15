@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div><b><a href="/index">Home</a></b></div>
+    <div class="no-print"><b><a href="/index">Home</a></b></div>
 
     {% with messages = get_flashed_messages() %}
       {% if messages %}
@@ -28,6 +28,6 @@
 </body>
 <justify>
 
-<a href="/index">Home</a> | <a href="/about">About</a> |
+<div class="no-print"><a href="/index">Home</a> | <a href="/about">About</a> | </div>
 </justify>
 </html>

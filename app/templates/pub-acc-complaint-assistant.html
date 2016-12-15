@@ -26,6 +26,7 @@
     <form action="" method="post" class="form">
         {{ form.hidden_tag() }}
       <p><b>Complete the Following Information About Yourself:</b></p>
+      <blockquote>
       <p>Your Last Name: {{form.complaintant_lastname(class="inputfield")}}</p>
       <p>Your First Name: {{form.complaintant_firstname(class="inputfield")}}</p>
       <p>Your Middle Inidial: {{form.complaintant_mi(size=2, class="inputfield")}}</p>
@@ -39,10 +40,11 @@
       <p>Your Email: {{form.complaintant_email(class="inputfield")}}</p>
       <p>Your Date of Birth: {{form.complaintant_dob(class="inputfield")}}</p>
       <p>Your Sex: {{form.complaintant_sex(class="selectfield")}}</p>
-
+    </blockquote>
       <br>
-
       <p><b>Please provide the name of a person we can contact if we are unable to reach you:</b></p>
+      <blockquote>
+
       <p>Their Relationship to You: {{form.otherperson_rel(class="inputfield")}}</p>
       <p>Contact's Last Name: {{form.otherperson_lastname(class="inputfield")}}</p>
       <p>Contact's First Name: {{form.otherperson_firstname(class="inputfield")}}</p>
@@ -54,11 +56,12 @@
       <p>Contact's State: {{form.otherperson_state(class="selectfield")}}</p>
       <p>Contact's Zip Code: {{form.otherperson_zip(size=6, class="inputfield")}}</p>
       <p>Contact's Phone: {{form.otherperson_phone(size=12, class="inputfield")}}</p>
-
+    </blockquote>
       <br>
 
       <p><b>Please provide the following information about the organization or business
       that discriminated against you:</b></p>
+      <blockquote>
       <p>The Organization's Name: {{form.organization_name(class="inputfield")}}</p>
       <p>The Organization's Street Address: {{form.organization_streetaddress(class="inputfield")}}</p>
       <p>The Organization's City: {{form.organization_city(class="inputfield")}}</p>
@@ -70,10 +73,11 @@
       <p><i>Examples: Private Club, Restaurant, Hotel, Store</i></p>
       <p>The Organization's Owner, if you know: {{form.organization_owner(class="inputfield")}}</p>
       <p>The Owner's Telephone Number, if you know: {{form.organization_ownerphone(class="inputfield")}}</p>
-
+    </blockquote>
       <br>
       <p><b>If you know the name and contact information for a representative for
         the organization, please provide it here:</b></p>
+        <blockquote>
         <p>The Representative's Name: {{form.org_pr_name(class="inputfield")}}</p>
         <p>The Representative's Street Address: {{form.org_pr_streetaddress(class="inputfield")}}</p>
         <p>The Representative's City: {{form.org_pr_city(class="inputfield")}}</p>
@@ -81,9 +85,10 @@
         <p>The Representative's State: {{form.org_pr_state(class="selectfield")}}</p>
         <p>The Representative's Zip Code: {{form.org_pr_zip(size=6, class="inputfield")}}</p>
         <p>The Representative's Phone: {{form.org_pr_phone(size=12, class="inputfield")}}</p>
-
+      </blockquote>
         <br>
         <p><b>What are the reasons for your discrimination claim?</b></p>
+        <blockquote>
         <p> {{form.reason_race}} Race</p>
         <p>If you marked yes, what is your race? {{form.reason_race_choose(class="selectfield")}}</p>
 
@@ -94,26 +99,89 @@
         <p>If you marked yes, what is your national origin? {{form.reason_natorigin_choose(class="selectfield")}}</p>
 
         <p> {{form.reason_sex}} Sex</p>
-        <p>If you marked yes, what is your race? {{form.reason_sex_choose(class="selectfield")}}</p>
+        <p>If you marked yes, what is your sex? {{form.reason_sex_choose(class="selectfield")}}</p>
 
         <p> {{form.reason_preg}} Pregnancy or a Pregnancy-Related Condition</p>
 
         <p> {{form.reason_religion}} Religion</p>
+        <p>If you marked yes, what is your religion? {{form.reason_religion_disc(class="inputfield")}}</p>
 
         <p> {{form.reason_disability}} Mental or Physical Disability or Disability-Related Condition</p>
 
         <p> {{form.reason_familial_status}} Familial Status</p>
+        <p>If you marked yes, what is your familial status? {{form.reason_familial_status_disc(class="inputfield")}}</p>
 
         <p> {{form.reason_other}} Other</p>
-
+        <p> If you marked "other," please describe:</p>
+        <p>{{form.reason_other_disc}}
+      </blockquote>
+      <br>
         <p><b>What happened to you that you believe was discriminatory?
     Include the date(s) of harm, the action(s), and the name(s) and title(s)
     of the person(s) who you believe discriminated against you.</b></p>
+        <blockquote>
+          <p>{{form.harm_description(class="inputfieldtall")}}</p>
+          <p><i>Hint: drag on the bottom right corner of this field to enlarge it.</i></p>
+        </blockquote>
+        <br>
+        <p><b>Answer question 7 only if you are claiming discrimination based on disability.
+          If not, skip to question 8.</b></p>
+          <br>
+        <p><b>7.	Do you have a disability, which is a physical or mental impairment
+          that substantially limits a major life activity, such as caring for
+          yourself, performing manual tasks, walking, seeing, hearing, speaking,
+          breathing, learning, or working?</b></p>
+          <blockquote>
+          <p>{{form.disability_yes}} Yes, I have a disability.</p>
+          <p>{{form.disability_past}} I do not have a disability now, but I did have one.</p>
+          <p>{{form.disability_treat_asif}} No disability, but the organization treats me as if I am disabled.</p>
+        </blockquote>
+        <br>
+        <p><b>8. Have you filed this charge previously with another agency?</b><p>
+          <blockquote>
+          <p> {{form.previous_charge(class="selectfield")}}</p>
+        <p><b>If so, please provide the name of the agency and the date of the filing:</b></p>
+        <p>Agency: {{form.previous_charge_agency(class="inputfield")}}</p>
+        <p> Date: {{form.previous_charge_date(class="inputfield")}}</p>
+        <p><b>Have you sought help about this situation from a union, an attorney, or any other source?</b></p>
+        <p>{{form.sought_help(class="selectfield")}}</p>
+        <p><b>If so, provide the name of organization, name of person you spoke
+          with, date of contact and the results or outcome, if any.</b></p>
+        <p>{{form.sought_help_disc(class="inputfield")}}</p>
+      </blockquote>
+      <br>
+          <p>Please check one of the boxes below to tell us what you would like
+            us to do with the information you are providing on this questionnaire.
+            If you would like to file a charge of public accommodations
+            discrimination, you must do so within 365 days from the date you were
+            allegedly discriminated against.  If you do not file a charge of
+            discrimination within the time limit, you will lose your ability
+            to file a charge.  If you would like more information before filing
+            a charge or you have concerns about the FCHR notifying the organization
+            about your charge, you may wish to check Box 1.  If you want to file
+            a charge, you should check Box 2.<p>
+              <blockquote>
+              <p>BOX 1: {{form.box_1}} I want to talk to an FCHR employee before deciding
+                whether to file a charge.  I understand that by checking this box,
+                I have not filed a charge with the FCHR.  I also understand that
+                I could lose my ability to file a charge if I do not file in time.</p>
+              </blockquote>
+              <blockquote>
+              <p>BOX 2: {{form.box_2}}  I want to file a charge of discrimination, and I authorize
+                the FCHR to look into the discrimination I described above.
+                I understand that the FCHR must give the organization that I
+                accuse of discrimination information about the charge, including
+                my name.  I also understand that the FCHR can only accept charges
+                of discrimination based on race, religion, sex, pregnancy,
+                national origin, disability, age, genetic information, or
+                retaliation for opposing discrimination.  By signing below, I
+                verify that I have read the above information and that the facts
+                stated are true.</p>
+              </blockquote>
+              <p><i>NOTE: If you have checked Box 2 above, and your case is already
+                350 days or more from the alleged discrimination, the FCHR will
+                accept this form as a charge if it meets the elements of a charge.</i></p>
 
-          <p>{{form.harm_description(class="inputfield")}}</p>
-
-
-          
 
           <p><center><input type="submit" value="Create Form"></center></p>
     </form>
