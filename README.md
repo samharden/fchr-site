@@ -1,4 +1,5 @@
-# fchr-assistant
+## fchr-assistant
+
 Purpose:  To assist people in filing complaints with the
           Florida Commission on Human Relations
 
@@ -11,10 +12,8 @@ Uses: Python 3.5, Flask, Jinja, WTForms, other stuff.
 Requirements: Check the Requirements.txt file for all required python modules.
 
 Needs:
-    1.  Complete form builder questionnaire for complaint forms;
+    1.  Complete form builder questionnaire for complaint forms.
     2.  Build searchable database of DOAH decisions and FHCR final opinions from
-        these sources:
-          a. https://www.doah.state.fl.us/ALJ/searchDOAH/docket.asp?T=12/20/2016%209:23:08%20PM
-          b. http://fchr.state.fl.us/fchr/complaints__1/final_orders
-
-          
+        these sources.
+          ⋅⋅a. [DOAH][https://www.doah.state.fl.us/ALJ/searchDOAH/docket.asp?T=12/20/2016%209:23:08%20PM]
+          ⋅⋅b. [FCHR][http://fchr.state.fl.us/fchr/complaints__1/final_orders]
