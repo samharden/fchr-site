@@ -1,3 +1,12 @@
+"""
+    Purpose: to scrape through and save the DOAH opinions into one place.
+    Needs:
+        the save_opinion function isn't working
+        should iterate through every page
+"""
+
+
+
 import selenium
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -52,7 +61,7 @@ for link in list1[:2]:
             with open(filename, 'w') as output:
                 try:
                     pickle.dump(obj, output, -1)
-                    os.chdir('/Users/samharden/fchr-site/opinions/')
+                    os.chdir('/dir/to/save/opinions')
                 except Exception as inst:
                     print(type(inst))
                     print(inst.args)
