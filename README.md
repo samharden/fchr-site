@@ -18,6 +18,6 @@ Needs:
     2.  Build searchable database of DOAH decisions and FHCR final opinions from
         these sources.
 
-        a. [DOAH][https://www.doah.state.fl.us/ALJ/searchDOAH/docket.asp?T=12/20/2016%209:23:08%20PM]
+        a. [DOAH](https://www.doah.state.fl.us/ALJ/searchDOAH/docket.asp?T=12/20/2016%209:23:08%20PM)
 
-        b. [FCHR][http://fchr.state.fl.us/fchr/complaints__1/final_orders]
+        b. [FCHR](http://fchr.state.fl.us/fchr/complaints__1/final_orders)
